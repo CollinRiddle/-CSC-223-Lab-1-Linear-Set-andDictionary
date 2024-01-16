@@ -58,12 +58,18 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean isEmpty() {
-		return _list.isEmpty();
+		if (_list.isEmpty()) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public boolean contains(Object o) {
-		return _list.contains(o);
+		if (_list.contains(o)) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
