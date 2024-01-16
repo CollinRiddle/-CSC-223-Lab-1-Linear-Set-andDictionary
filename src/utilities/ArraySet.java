@@ -1,3 +1,14 @@
+/**
+ * Write a succinct, meaningful description of the class here. You should avoid wordiness
+ * and redundancy. If necessary, additional paragraphs should be preceded by <p>,
+ * the html tag for a new paragraph.
+ *
+ * <p>Bugs: (a list of bugs and / or other problems)
+ *
+ * @author Case and Collin Riddle
+ * @date 1/19/2024
+ */
+
 package utilities;
 
 import java.util.ArrayList;
@@ -12,19 +23,32 @@ public class ArraySet<E> implements List<E>, Set<E>
 {
 	protected ArrayList<E> _list;
 
-	public ArraySet()
-	{
+	public ArraySet() {
 		_list = new ArrayList<E>();
+	}
+
+	public ArraySet(Collection<E> collection) {
+		this();
+		for (E item : collection) {
+			add(item);
+		}
 	}
 
 	@Override
 	public boolean add(E e) {
-		return _list.add(e);
+		//No key, add it
+		if (!(_list.contains(e))) {
+			_list.add(e);
+		}
+		return false;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		return _list.addAll(c);
+		if (_list.containsAll(c)) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -34,23 +58,29 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean isEmpty() {
-		return _list.isEmpty();
+		if (_list.isEmpty()) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public boolean contains(Object o) {
-		return _list.contains(o);
+		if (_list.contains(o)) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public Iterator<E> iterator() {
 		return _list.iterator();
-		}
+	}
 
 	@Override
 	public Object[] toArray() {
 		return _list.toArray();
-		}
+	}
 
 	@Override
 	public <T> T[] toArray(T[] a) {
@@ -60,92 +90,82 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.remove(o);
 	}
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.contains(c);
 	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.addAll(index, c);
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.retainAll(c);
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_list.clear();
 	}
 
 	@Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.get(index);
 	}
 
 	@Override
 	public E set(int index, E element) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.set(index, element);
 	}
 
 	@Override
 	public void add(int index, E element) {
-		// TODO Auto-generated method stub
-		
+		_list.add(index, element);
 	}
 
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.remove(index);
 	}
 
 	@Override
 	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return _list.indexOf(o);
 	}
 
 	@Override
 	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return _list.indexOf(o);
 	}
 
 	@Override
 	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator();
 	}
 
 	@Override
 	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator(index);
 	}
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.subList(fromIndex, toIndex);
+	}
+
+	@Override
+	public Spliterator<E> spliterator() {
+		return List.super.spliterator();
 	}
 
 
