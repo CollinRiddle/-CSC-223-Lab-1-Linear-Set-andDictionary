@@ -45,10 +45,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		if (_list.containsAll(c)) {
-			return true;
-		}
-		return false;
+		return _list.containsAll(c);
 	}
 
 	@Override
@@ -167,6 +164,5 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public Spliterator<E> spliterator() {
 		return List.super.spliterator();
 	}
-
 
 }

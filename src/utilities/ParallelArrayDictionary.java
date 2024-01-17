@@ -1,13 +1,13 @@
 /**
-* Write a succinct, meaningful description of the class here. You should avoid wordiness
-* and redundancy. If necessary, additional paragraphs should be preceded by <p>,
-* the html tag for a new paragraph.
-*
-* <p>Bugs: (a list of bugs and / or other problems)
-*
-* @author <your name>
-* @date <date of completion>
-*/
+ * Write a succinct, meaningful description of the class here. You should avoid wordiness
+ * and redundancy. If necessary, additional paragraphs should be preceded by <p>,
+ * the html tag for a new paragraph.
+ *
+ * <p>Bugs: (a list of bugs and / or other problems)
+ *
+ * @author <your name>
+ * @date <date of completion>
+ */
 
 package utilities;
 
@@ -19,9 +19,9 @@ import java.util.Set;
 
 public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 {
-    protected ArraySet<Key>    _keys;
-    protected ArrayList<Value> _values;
-	
+	protected ArraySet<Key>    _keys;
+	protected ArrayList<Value> _values;
+
 	public ParallelArrayDictionary()
 	{
 		_keys = new ArraySet<Key>();
@@ -59,32 +59,36 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Value get(Object key) {
-		// TODO Auto-generated method stub
+		if (_keys.contains(key)) {
+			return _values.get(_keys.indexOf(key));
+		}
 		return null;
 	}
 
 	@Override
 	public Value put(Key key, Value value) {
-		// TODO Auto-generated method stub
+		if (_keys.contains(key)) {
+			return _values.set(_keys.indexOf(key), value);
+		}
 		return null;
 	}
 
 	@Override
 	public Value remove(Object key) {
-		// TODO Auto-generated method stub
+		if (_keys.contains(key)) {
+			return _values.remove(_keys.indexOf(key));
+		}
 		return null;
 	}
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_keys.clear();
 	}
 
 	@Override
