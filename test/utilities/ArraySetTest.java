@@ -64,9 +64,11 @@ class ArraySetTest
 	void testRemoveAll() {
 		ArraySet<String> abc = new ArraySet<String>(Arrays.asList("Bye", "Hi"));
 		Collection<String> elements = Arrays.asList("Bye", "Hi");
+		assertTrue(abc.containsAll(elements));
+		
 		abc.removeAll(elements);
 		assertFalse(abc.contains("Bye"));
-		assertFalse(abc.contains("Hi"));
+		assertFalse(abc.contains("Hi"));	
 	}
 
 	@Test

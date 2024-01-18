@@ -92,7 +92,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		return _list.contains(c);
+		return _list.containsAll(c);
 	}
 
 	@Override
