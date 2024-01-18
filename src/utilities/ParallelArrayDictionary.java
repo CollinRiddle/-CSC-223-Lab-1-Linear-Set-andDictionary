@@ -43,10 +43,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public boolean containsKey(Object key) {
-		if (_keys.equals(key)) {
-			return true;
-		}
-		return false;
+		return _keys.contains(key);
 	}
 
 	@Override
@@ -65,11 +62,13 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		return null;
 	}
 
-	@Override
 	public Value put(Key key, Value value) {
-		if (_keys.contains(key)) {
-			return _values.set(_keys.indexOf(key), value);
+		int index = _keys.indexOf(key);
+		if (index != -1) {
+			return _values.set(index, value);
 		}
+		_keys.add(key);
+		_values.add(value);
 		return null;
 	}
 
@@ -93,7 +92,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Key> keySet() {
-		
+
 		return null;
 	}
 
@@ -104,7 +103,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		
+
 		return null;
 	}
 

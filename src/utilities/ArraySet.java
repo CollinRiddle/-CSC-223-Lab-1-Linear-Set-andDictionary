@@ -45,7 +45,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
-		return _list.containsAll(c);
+		return _list.addAll(c);
 	}
 
 	@Override
