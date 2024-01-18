@@ -13,7 +13,6 @@ package utilities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -41,6 +40,9 @@ class ParallelArrayDictionaryTest
 
 	}
 
+	/**
+	 * Creates two dictionaries and tests the putAll method by using get() and size().
+	 **/
 	@Test
 	void testPutAll() {
 		ParallelArrayDictionary<String, Integer> abc = new ParallelArrayDictionary<>();
@@ -57,6 +59,9 @@ class ParallelArrayDictionaryTest
 		assertEquals(3, abc.size());
 	}
 
+	/**
+	 * Tests basic attributes of a clear method.
+	 **/
 	@Test
 	void testClear() {
 		ParallelArrayDictionary<String, Integer> abc = new ParallelArrayDictionary<>();

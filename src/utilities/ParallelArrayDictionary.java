@@ -63,6 +63,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		return null;
 	}
 
+	/**
+	 * Finds the index of the key in _key.
+	 * If found, updates the corresponding value at the index and returns the previous value.
+	 * If not found, adds the key and value to their lists.
+	 **/
 	public Value put(Key key, Value value) {
 		int index = _keys.indexOf(key);
 		if (index != -1) {
@@ -73,6 +78,9 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		return null;
 	}
 
+	/**
+	 * If the key exists, it removes the corresponding value at the index of the key. 
+	 **/
 	@Override
 	public Value remove(Object key) {
 		if (_keys.contains(key)) {
@@ -81,6 +89,10 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		return null;
 	}
 
+	/**
+	 * Iterates over the entries in the map.
+	 * Calls the put method to add the key-value pair to the current map.
+	 **/
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
 		for (Entry<? extends Key, ? extends Value> entry: m.entrySet()) {
@@ -106,6 +118,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		return new ArrayList<>(_values);
 	}
 
+	/**
+	 * Stores entries in the HashSet.
+	 * Creates a new entry for each key-value pair and adds it to the HashSet.
+	 * Iterates over all the keys and values.
+	 **/
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
 		Set<Entry<Key, Value>> entrySet = new HashSet<>();

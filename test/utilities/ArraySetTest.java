@@ -31,6 +31,11 @@ class ArraySetTest
 
 	}
 
+	/**
+	 * Creates an ArraySet<String> that contains two elements.
+	 * Tests that the size method is working along with the isEmpty.
+	 * Tests contains, clear, and the iterator.
+	 **/
 	@Test
 	void testAddE() {
 		ArraySet<String> abc = new ArraySet<String>(Arrays.asList("Bye", "Hi"));
@@ -60,6 +65,9 @@ class ArraySetTest
 	void testRetainAll() {
 	}
 
+	/**
+	 * Creates a collection of elements and tests the removeAll function.
+	 **/
 	@Test
 	void testRemoveAll() {
 		ArraySet<String> abc = new ArraySet<String>(Arrays.asList("Bye", "Hi"));
@@ -71,6 +79,10 @@ class ArraySetTest
 		assertFalse(abc.contains("Hi"));	
 	}
 
+	/**
+	 * Tests the addAll method through the creation of a collection.
+	 * Checks that all of the indexes are working correctly.
+	 **/
 	@Test
 	void testAddAllIntCollectionOfQextendsE() {
 		ArraySet<String> abc = new ArraySet<String>(Arrays.asList("Bye", "Hi"));

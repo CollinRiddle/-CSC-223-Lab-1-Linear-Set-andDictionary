@@ -34,6 +34,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 		}
 	}
 
+	/**
+	 * If the element isn't already in the list, it will add it.
+	 **/
 	@Override
 	public boolean add(E e) {
 		//No key, add it
@@ -90,6 +93,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 		return _list.remove(o);
 	}
 
+	/**
+	 * Checks to make sure that the list contains all of the elements in a specified colleciton. 
+	 **/
 	@Override
 	public boolean containsAll(Collection<?> c) {
 		return _list.containsAll(c);
@@ -125,6 +131,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 		return _list.set(index, element);
 	}
 
+	/**
+	 * Adds the specified element at the specified index in the list.
+	 **/
 	@Override
 	public void add(int index, E element) {
 		_list.add(index, element);
@@ -150,6 +159,10 @@ public class ArraySet<E> implements List<E>, Set<E>
 		return _list.listIterator();
 	}
 
+	/**
+	 * Returns a ListIterator over all of the elements in the list.
+	 * Starts at the specified index.
+	 **/
 	@Override
 	public ListIterator<E> listIterator(int index) {
 		return _list.listIterator(index);
@@ -160,6 +173,9 @@ public class ArraySet<E> implements List<E>, Set<E>
 		return _list.subList(fromIndex, toIndex);
 	}
 
+	/**
+	 * Returns a spliterator over all of the elements in the list.
+	 **/
 	@Override
 	public Spliterator<E> spliterator() {
 		return List.super.spliterator();
