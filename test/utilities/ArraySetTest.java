@@ -72,7 +72,15 @@ class ArraySetTest
 	}
 
 	@Test
-	void testAddAllIntCollectionOfQextendsE()
-	{
+	void testAddAllIntCollectionOfQextendsE() {
+		ArraySet<String> abc = new ArraySet<String>(Arrays.asList("Bye", "Hi"));
+		Collection<String> elements = Arrays.asList("Case", "Collin");
+		abc.addAll(1, elements);
+		
+		assertEquals("Bye", abc.get(0));
+		assertEquals("Hi", abc.get(3));
+		assertEquals("Collin", abc.get(2));
+		assertEquals("Case", abc.get(1));
+		assertEquals(4, abc.size());
 	}
 }
