@@ -93,19 +93,18 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Key> keySet() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public Collection<Value> values() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<>(_values);
 	}
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
