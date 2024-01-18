@@ -28,9 +28,8 @@ class ParallelArrayDictionaryTest
 
 	@Test
 	void testGet() {
-		
-	}
 
+	}
 
 	@Test
 	void testPut()
@@ -39,24 +38,35 @@ class ParallelArrayDictionaryTest
 
 	@Test
 	void testRemove() {
-		
+
 	}
 
 	@Test
 	void testPutAll() {
-		
+		ParallelArrayDictionary<String, Integer> abc = new ParallelArrayDictionary<>();
+
+		ParallelArrayDictionary<String, Integer> map = new ParallelArrayDictionary<>();
+		map.put("One", 1);
+		map.put("Two", 2);
+		map.put("Three", 3);
+
+		abc.putAll(map);
+		assertTrue(abc.get("One").equals(1));
+		assertTrue(abc.get("Two").equals(2));
+		assertTrue(abc.get("Three").equals(3));
+		assertEquals(3, abc.size());
 	}
 
 	@Test
 	void testClear() {
-		 ParallelArrayDictionary<String, Integer> abc = new ParallelArrayDictionary<>();
-	        abc.put("", 0);
-	        abc.put("Two", 1);
+		ParallelArrayDictionary<String, Integer> abc = new ParallelArrayDictionary<>();
+		abc.put("", 0);
+		abc.put("Two", 1);
 
-	        assertFalse(abc.isEmpty());
-	        abc.clear();
-	        assertEquals(0, abc.size());
-	        assertTrue(abc.isEmpty());
-	        assertNull(abc.get(""));
+		assertFalse(abc.isEmpty());
+		abc.clear();
+		assertEquals(0, abc.size());
+		assertTrue(abc.isEmpty());
+		assertNull(abc.get(""));
 	}
 }

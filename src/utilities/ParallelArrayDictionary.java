@@ -14,6 +14,7 @@ package utilities;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -82,7 +83,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		
+		for (Entry<? extends Key, ? extends Value> entry: m.entrySet()) {
+			Key one = entry.getKey();
+			Value two = entry.getValue();
+			put(one, two);
+		}
 	}
 
 	@Override
@@ -103,8 +108,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-
-		return null;
+		Set<Entry<Key, Value>> entrySet = new HashSet<>();
+		for (int i = 0; i < _keys.size(); i++) {
+			entrySet.add(new AbstractMap.SimpleEntry<>(_keys.get(i), _values.get(i)));
+		}
+		return entrySet;
 	}
 
 }
